@@ -27,11 +27,15 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ul className='p-4 grid grid-cols-5 gap-4'>
-        {products?.map(product => (
-          <ProductTile key={product.id} {...product} />
-        ))}
-      </ul>
+
+      <section className='px-(--app-px) flex flex-col gap-8 py-12 bg-linear-to-b from-emerald-800 to-emerald-900'>
+        <h3 className='text-4xl font-bold'>Our best products</h3>
+        <ul className='grid grid-cols-5 gap-4'>
+          {products?.map(product => (
+            <ProductTile key={product.id} {...product} />
+          ))}
+        </ul>
+      </section>
     </>
   )
 }

@@ -21,6 +21,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@types": ["./src/types.d.ts"],
+      "@consts": ["./src/consts.ts"],
       "@components/*": ["./src/components/*"],
       "@components": ["./src/components/index.ts"]
     }

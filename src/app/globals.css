@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+* {
+  color-scheme: dark;
+}
+
+@theme {
+  --font-plus: var(--font-plus-jakarta-sans), sans;
+  --font-poppins: var(--font-poppins), sans-serif;
+}
+
 :root {
   --app-px: 8rem;
 }

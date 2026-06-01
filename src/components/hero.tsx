@@ -1,23 +1,31 @@
-import { CartIcon, SearchIcon } from './icons'
+import Image from 'next/image'
+import { ArrowRightIcon } from './icons'
 
 export const Hero = () => {
+  const imgSize = 400
+
   return (
-    <section>
-      <header className='flex justify-between items-center px-(--app-px) relative'>
-        <div className='flex flex-col gap-1 items-start'>
-          <h1 className='text-4xl font-bold text-center'>Kevin's Store</h1>
-          <p className='text-center text-lg text-gray-600'>Your one-stop shop for everything!</p>
-        </div>
+    <section className='px-(--app-px) flex justify-between items-center'>
+      <div className='font-poppins flex flex-col justify-center h-160 w-1/2 gap-8'>
+        <h2 className='font-bold text-6xl'>The best products at unbeatable prices.</h2>
+        <p className='text-2xl text-white/70'>
+          Discover a wide range of products, from electronics to fashion, all in one place. Shop now and
+          experience the convenience of online shopping with fast delivery and excellent customer service.
+        </p>
 
-        <label className='flex items-center gap-2 border border-gray-300 rounded-full px-4 h-12 w-full max-w-md absolute top-1/2 left-1/2 transform -translate-1/2'>
-          <SearchIcon className='size-5 text-gray-400' />
-          <input type='text' placeholder='Search products...' className='outline-none' />
-        </label>
-
-        <button>
-          <CartIcon />
+        <button className='flex items-center gap-2 text-black bg-white px-8 py-2 mt-4 w-fit'>
+          <span className='text-lg font-semibold'>Shop Now</span>
+          <ArrowRightIcon />
         </button>
-      </header>
+      </div>
+
+      <Image
+        src='/shopping-cart.webp'
+        alt='Shopping Cart'
+        width={imgSize}
+        height={imgSize}
+        className='object-contain'
+      />
     </section>
   )
 }

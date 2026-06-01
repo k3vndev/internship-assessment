@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { AppHeader } from '@components'
+import { APP_FONTS_VARIABLES } from '@consts'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' className='h-full antialiased'>
-      <body className='min-h-full flex flex-col'>{children}</body>
+    <html lang='en' className={`h-full antialiased ${APP_FONTS_VARIABLES}`}>
+      <body className='min-h-full flex flex-col font-plus'>
+        <AppHeader />
+        {children}
+      </body>
     </html>
   )
 }
