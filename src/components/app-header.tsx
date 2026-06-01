@@ -1,19 +1,43 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import { CartIcon, SearchIcon } from './icons'
 
-export const AppHeader = () => (
-  <header className='flex justify-between items-center px-(--app-px) relative py-4 bg-zinc-800'>
-    <div className='flex flex-col gap-0 items-start'>
-      <h1 className='text-2xl font-semibold text-center font-poppins'>Kevin's Store</h1>
-      <p className='text-center text-base text-white/70'>Your one-stop shop for everything!</p>
-    </div>
+export const AppHeader = () => {
+  const [isOnTop, setIsOnTop] = useState(true)
 
-    <label className='flex items-center gap-2 border border-gray-300 rounded-full px-4 h-12 w-full max-w-md absolute top-1/2 left-1/2 transform -translate-1/2'>
-      <SearchIcon className='size-5 text-gray-400' />
-      <input type='text' placeholder='Search products...' className='outline-none' />
-    </label>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsOnTop(window.scrollY < 50)
+    }
 
-    <button>
-      <CartIcon />
-    </button>
-  </header>
-)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const bgColor = isOnTop ? 'bg-black' : 'bg-black/90'
+
+  return (
+    <header
+      className={`flex justify-between items-center px-(--app-px) fixed w-screen z-50 top-0 left-0 py-4 ${bgColor} backdrop-blur-sm transition duration-500 border-b border-gray-700`}
+    >
+      <div className='flex flex-col gap-0 items-start'>
+        <h1 className='text-2xl font-semibold text-center font-poppins'>Kevin's Store</h1>
+        <p className='text-center text-base text-white/70'>Your one-stop shop for everything!</p>
+      </div>
+
+      <label className='flex items-center gap-2 border border-gray-500 focus-within:border-gray-200 transition rounded-full px-4 h-12 w-full max-w-md absolute top-1/2 left-1/2 -translate-1/2 group'>
+        <SearchIcon className='size-5 text-gray-400 group-focus-within:text-gray-200 transition' />
+        <input
+          type='text'
+          placeholder='Search products...'
+          className='outline-none placeholder:text-gray-400'
+        />
+      </label>
+
+      <button className='button p-1'>
+        <CartIcon className='size-8' />
+      </button>
+    </header>
+  )
+}

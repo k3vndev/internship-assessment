@@ -4,11 +4,19 @@
   color-scheme: dark;
 }
 
+:root {
+  --app-px: 16rem;
+}
+
 @theme {
   --font-plus: var(--font-plus-jakarta-sans), sans;
   --font-poppins: var(--font-poppins), sans-serif;
 }
 
-:root {
-  --app-px: 8rem;
+@utility text-gradient {
+  @apply bg-linear-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent;
+}
+
+@utility button {
+  @apply hover:brightness-110 hover:scale-105 active:scale-90 active:brightness-90 active:opacity-90 disabled:opacity-50 cursor-pointer disabled:pointer-events-none transition duration-300;
 }
