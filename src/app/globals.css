@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+:root {
+  --app-px: 8rem;
+}
