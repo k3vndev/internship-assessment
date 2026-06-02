@@ -43,7 +43,7 @@ export const SearchBar = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex items-center gap-2 border border-gray-600 focus-within:border-gray-300 transition rounded-full h-12 w-full max-w-md absolute top-1/2 left-1/2 -translate-1/2 group overflow-clip'
+      className='flex items-center gap-2 border border-gray-600 focus-within:border-gray-300 transition rounded-full h-12 w-full max-w-md xl:absolute xl:top-1/2 xl:left-1/2 xl:-translate-1/2 group overflow-clip'
     >
       <SearchIcon className='size-5 shrink-0 text-zinc-600 transition ml-4' />
       <input
@@ -51,7 +51,7 @@ export const SearchBar = () => {
         placeholder='Search products...'
         value={searchBar}
         onChange={handleChange}
-        className='outline-none placeholder:text-gray-400 bg-transparent flex-1 min-w-0'
+        className='outline-none placeholder:text-gray-400 bg-transparent flex-1 min-w-0 w-full'
       />
 
       <div className='flex items-center gap-1 h-full'>

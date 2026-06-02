@@ -22,18 +22,18 @@ export const AppHeader = () => {
 
   return (
     <header
-      className={`flex justify-between items-center px-(--app-px) fixed w-screen z-50 top-0 left-0 py-5 ${bgColor} backdrop-blur-md transition duration-500 border-b border-gray-800`}
+      className={`flex justify-between items-center px-(--app-px) fixed w-screen z-50 top-0 left-0 py-5 gap-4 ${bgColor} backdrop-blur-md transition duration-500 border-b border-gray-800`}
     >
       <Link href='/' className='flex items-center gap-2'>
         <Image
-          className='size-12 brightness-0 invert'
+          className='size-12 brightness-0 invert not-sm:hidden'
           src='/shopping-cart.webp'
           alt='Shopping Cart'
           width={50}
           height={50}
         />
 
-        <div className='flex flex-col gap-0 items-start'>
+        <div className='flex flex-col gap-0 items-start not-lg:hidden'>
           <h1 className='text-2xl font-semibold text-center font-poppins'>Kevin's Store</h1>
           <p className='text-center text-base text-white/70 -mt-1'>Your one-stop shop for everything!</p>
         </div>

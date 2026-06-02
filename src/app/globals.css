@@ -5,7 +5,37 @@
 }
 
 :root {
-  --app-px: 16rem;
+  --app-px: 1rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --app-px: 1.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --app-px: 2rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --app-px: 3rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --app-px: 4rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  :root {
+    --app-px: 5rem;
+  }
 }
 
 @theme {
