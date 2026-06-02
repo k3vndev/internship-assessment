@@ -12,10 +12,12 @@ export default function CartPage() {
       <h2 className='lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-bold -tracking-widest'>CART</h2>
       <ProductsList products={cart} isLoading={false} />
 
-      <button className='flex items-center gap-2 text-white bg-black px-8 py-2 w-fit button'>
-        <span className='text-lg font-semibold'>Checkout</span>
-        <ArrowRightIcon />
-      </button>
+      {cart.length > 0 && (
+        <button className='flex items-center gap-2 text-white bg-black px-8 py-2 w-fit button'>
+          <span className='text-lg font-semibold'>Checkout</span>
+          <ArrowRightIcon />
+        </button>
+      )}
     </main>
   )
 }

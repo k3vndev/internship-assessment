@@ -1,13 +1,78 @@
-# Frontend Internship Assessment Task
+# Frontend Engineering Internship Assessment
 
-A web application with a landing and search page that displays products from the [DummyJSON API](https://dummyjson.com/products) and allows users to search for products by name, filter by category, sort by price, and view product details.
+A responsive e-commerce web application built with **Next.js (App Router)** and **TypeScript**, featuring a landing page and search results page that display products from the [DummyJSON API](https://dummyjson.com/products).
 
-The application is built using Next.js and Tailwind CSS.
+The application allows users to:
 
-## Error Handling
+* Browse products in a responsive grid layout
+* Search products by name
+* Filter products by category
+* View detailed product information
+* Navigate through a clean and user-friendly interface
 
-It also handles loading states and errors gracefully, providing a smooth user experience. The application is responsive and works well on both desktop and mobile devices.
+## Features
+
+### Product Discovery
+
+* Dynamic product listing from the DummyJSON API
+* Real-time search functionality
+* Category-based filtering
+* Product detail pages
+
+### User Experience
+
+* Responsive design for mobile, tablet, and desktop devices
+* Loading states for asynchronous data fetching
+* Error handling with user-friendly feedback
+* Empty states when no products match the current search criteria
+
+### SEO
+
+* Metadata implementation using the Next.js Metadata API
+* Semantic HTML structure
+* Search-engine-friendly routing
 
 ## Technical Details
 
-I used a clean component architecture to organize the code and make it easier to maintain. I also used TypeScript to ensure type safety and improve code quality. The UI is responsive and mobile-friendly, providing a good user experience on all devices. I implemented SEO metadata to improve search engine visibility.
+### Stack
+
+* Next.js (App Router)
+* React
+* TypeScript
+* Tailwind CSS
+
+### Architecture
+
+The project follows a component-based architecture with a focus on maintainability, scalability, and code quality.
+
+Key considerations include:
+
+* Reusable UI components
+* Strong TypeScript typing
+* Separation of concerns
+* Responsive-first design approach
+* Clean and organized project structure
+
+### Performance Considerations
+
+* Server-side rendering capabilities provided by Next.js
+* Optimized data fetching
+* Efficient component rendering
+* Responsive image handling where applicable
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` to view the application.
+
+## Deployment
+
+The application is deployed on Vercel and can be accessed through the provided deployment link.
+
+## Notes
+
+The UI implementation follows the structure and visual direction provided in the assessment design while prioritizing responsiveness, usability, accessibility, and maintainable code practices over pixel-perfect replication.
