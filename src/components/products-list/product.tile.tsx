@@ -1,18 +1,19 @@
 import type { Product } from '@types'
 import Image from 'next/image'
-import { StarIcon } from './icons'
+import { StarIcon } from '../icons'
 
 export const ProductTile = ({ title, description, price, rating, images }: Product) => {
   const imgSize = 500
 
   return (
-    <li className='p-6 flex flex-col items-center bg-black rounded-xl gap-2'>
+    <li className='p-6 flex flex-col items-center bg-gray-950 rounded-xl gap-2'>
       {images.length > 0 && (
         <Image
           src={images[0]}
           alt={title}
           width={imgSize}
           height={imgSize}
+          draggable={false}
           className='rounded-lg w-32 h-32'
         />
       )}

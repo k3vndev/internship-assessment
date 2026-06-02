@@ -13,3 +13,30 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const APP_FONTS_VARIABLES = [poppins, plusJakartaSans].map(font => font.variable).join(' ')
+
+export const CATEGORIES = [
+  'beauty',
+  'fragrances',
+  'furniture',
+  'groceries',
+  'home-decoration',
+  'kitchen-accessories',
+  'laptops',
+  'mens-shirts',
+  'mens-shoes',
+  'mens-watches',
+  'mobile-accessories',
+  'motorcycle',
+  'skin-care',
+  'smartphones',
+  'sports-accessories',
+  'sunglasses',
+  'tablets',
+  'tops',
+  'vehicle',
+  'womens-bags',
+  'womens-dresses',
+  'womens-jewellery',
+  'womens-shoes',
+  'womens-watches'
+] as const

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`h-full antialiased ${APP_FONTS_VARIABLES}`}>
-      <body className='min-h-full flex flex-col font-plus'>
+      <body className='flex flex-col font-plus min-h-dvh bg-mauve-100'>
         <AppHeader />
         {children}
         <AppFooter />
