@@ -73,3 +73,62 @@ export const StarIcon = (props: Props) => (
     <path d='M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z' />
   </svg>
 )
+
+export const LoadingIcon = (props: Props) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+    {...props}
+  >
+    <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+    <path d='M12 3a9 9 0 1 0 9 9' />
+  </svg>
+)
+
+export const CrossIcon = (props: Props) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+    {...props}
+  >
+    <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+    <path d='M18 6l-12 12' />
+    <path d='M6 6l12 12' />
+  </svg>
+)
+
+export const CartAddIcon = (props: Props) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeWidth='2'
+    strokeLinecap='round'
+    strokeLinejoin='round'
+    {...props}
+  >
+    <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+    <path d='M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0' />
+    <path d='M12.5 17h-6.5v-14h-2' />
+    <path d='M6 5l14 1l-.86 6.017m-2.64 .983h-10.5' />
+    <path d='M16 19h6' />
+    <path d='M19 16v6' />
+  </svg>
+)
