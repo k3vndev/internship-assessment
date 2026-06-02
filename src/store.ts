@@ -1,13 +1,16 @@
 import type { Product, ProductFilters } from '@types'
 import { create } from 'zustand'
+import type { CATEGORIES } from './consts'
 
 interface GlobalStore {
   searchBar: string
   filters: ProductFilters
   cart: Product[]
+  category?: (typeof CATEGORIES)[number]
   setSearchBar: (searchBar: string) => void
   setFilters: (filters: ProductFilters) => void
   setCart: (cart: Product[]) => void
+  setCategory: (category: GlobalStore['category']) => void
   addToCart: (product: Product) => void
 }
 
@@ -35,5 +38,6 @@ export const useGlobalStore = create<GlobalStore>(set => ({
       return {
         cart: [...state.cart, product]
       }
-    })
+    }),
+  setCategory: category => set({ category })
 }))
