@@ -1,15 +1,12 @@
 'use client'
 
 import { ProductsList } from '@components/products-list'
-import { CATEGORIES } from '@consts'
 import { useFetchProducts } from '@hooks'
 import { useGlobalStore } from '@store'
 import type { ProductFilters } from '@types'
-import { parseFromKebab } from '@utils'
 import { useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useMemo, useState } from 'react'
-import { twMerge } from 'tailwind-merge'
-import { CrossIcon } from '@/components'
+import { CategoriesAccordion } from '@/components'
 
 const initialFilters: ProductFilters = {
   limit: 20,
@@ -58,7 +55,7 @@ const SearchPageContent = () => {
     window.history.replaceState(null, '', newUrl)
   }, [storeFilters, searchBar])
 
-  const selectCategory = (category: (typeof CATEGORIES)[number]) => {
+  const selectCategory = (category: NonNullable<typeof storeCategory>) => {
     setStoreCategory(category)
     setSearchBar('') // Clear search bar when selecting a category
   }
@@ -73,38 +70,11 @@ const SearchPageContent = () => {
 
   return (
     <main className='px-(--app-px) mt-40 mb-16 flex flex-col gap-8'>
-      <div className='flex flex-col gap-4'>
-        <h2 className='text-2xl text-black font-poppins font-semibold flex items-center gap-2'>
-          <span>Categories</span>
-          {storeCategory && (
-            <button
-              className='button'
-              onClick={() => setStoreCategory(undefined)}
-              aria-label='Clear category filter'
-              title='Clear category filter'
-            >
-              <CrossIcon />
-            </button>
-          )}
-        </h2>
-
-        <ul className='flex flex-wrap gap-2'>
-          {CATEGORIES.map(category => (
-            <li key={category}>
-              <button
-                type='button'
-                className={twMerge(
-                  'px-4 py-2 rounded-lg bg-gray-900 text-white button',
-                  storeCategory === category && 'bg-gray-500'
-                )}
-                onClick={() => selectCategory(category)}
-              >
-                {parseFromKebab(category)}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <CategoriesAccordion
+        selectedCategory={storeCategory}
+        onSelectCategory={selectCategory}
+        onClearCategory={() => setStoreCategory(undefined)}
+      />
 
       <ProductsList products={products} isLoading={isLoading} />
     </main>
