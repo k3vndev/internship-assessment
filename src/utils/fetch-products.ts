@@ -4,14 +4,21 @@ import type { Product, ProductFilters } from '@types'
 interface Params {
   filters?: ProductFilters
   category?: (typeof CATEGORIES)[number]
+  searchBar?: string
 }
 
-export const fetchProducts = async ({ filters, category }: Params) => {
+export const fetchProducts = async ({ filters, category, searchBar }: Params) => {
   try {
     const url = new URL('https://dummyjson.com/products')
+    const normalizedSearchBar = searchBar?.trim()
+
+    if (normalizedSearchBar) {
+      url.pathname += '/search'
+      url.searchParams.append('q', normalizedSearchBar)
+    }
 
     // Handle category filtering
-    if (category) {
+    if (category && !normalizedSearchBar) {
       url.pathname += `/category/${category}`
     }
 

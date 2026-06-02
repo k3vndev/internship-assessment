@@ -1,5 +1,6 @@
 'use client'
 
+import { useGlobalStore } from '@store'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -7,6 +8,8 @@ import { CartIcon, SearchIcon } from './icons'
 
 export const AppHeader = () => {
   const [isOnTop, setIsOnTop] = useState(true)
+  const searchBar = useGlobalStore(s => s.searchBar)
+  const setSearchBar = useGlobalStore(s => s.setSearchBar)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +46,8 @@ export const AppHeader = () => {
         <input
           type='text'
           placeholder='Search products...'
+          value={searchBar}
+          onChange={event => setSearchBar(event.target.value)}
           className='outline-none placeholder:text-gray-400'
         />
       </label>
