@@ -7,8 +7,13 @@ import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { CartAddIcon, CartCheckedIcon, StarIcon } from '../icons'
 
-export const ProductTile = (product: Product) => {
-  const { id, title, description, price, rating, images } = product
+type ProductTileProps = Product & {
+  index?: number
+}
+
+export const ProductTile = (product: ProductTileProps) => {
+  const { index = 0, ...productData } = product
+  const { id, title, description, price, rating, images } = productData
   const cart = useGlobalStore(s => s.cart)
   const addToCart = useGlobalStore(s => s.addToCart)
 
@@ -17,7 +22,16 @@ export const ProductTile = (product: Product) => {
   const imgSize = 500
 
   return (
-    <li className='p-6 flex flex-col items-center bg-gray-900 rounded-xl gap-2'>
+    <li
+      className='p-6 flex flex-col items-center bg-gray-900 rounded-xl gap-2 animate-appear'
+      style={{
+        animationName: 'appear',
+        animationDuration: '500ms',
+        animationTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        animationFillMode: 'both',
+        animationDelay: `${index * 70}ms`
+      }}
+    >
       {images.length > 0 && (
         <Image
           src={images[0]}
@@ -48,7 +62,7 @@ export const ProductTile = (product: Product) => {
               'p-2 rounded-lg button disabled:scale-100 disabled:brightness-100 [&>svg]:size-8 text-black',
               !isAdded ? 'bg-mauve-200' : 'bg-purple-700'
             )}
-            onClick={() => addToCart(product)}
+            onClick={() => addToCart(productData)}
             aria-label={isAdded ? `Remove ${title} from cart` : `Add ${title} to cart`}
             title={isAdded ? `Remove ${title} from cart` : `Add ${title} to cart`}
           >

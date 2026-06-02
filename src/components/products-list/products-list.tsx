@@ -11,8 +11,8 @@ export const ProductsList = ({ products, isLoading }: Props) => {
   if (products?.length) {
     return (
       <ul className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4'>
-        {products.map(product => (
-          <ProductTile key={product.id} {...product} />
+        {products.map((product, index) => (
+          <ProductTile key={product.id} index={index} {...product} />
         ))}
       </ul>
     )
