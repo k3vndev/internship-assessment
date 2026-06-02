@@ -1,8 +1,19 @@
+'use client'
+
+import { useGlobalStore } from '@store'
 import type { Product } from '@types'
 import Image from 'next/image'
-import { CartAddIcon, StarIcon } from '../icons'
+import { useMemo } from 'react'
+import { twMerge } from 'tailwind-merge'
+import { CartAddIcon, CartCheckedIcon, StarIcon } from '../icons'
 
-export const ProductTile = ({ title, description, price, rating, images }: Product) => {
+export const ProductTile = (product: Product) => {
+  const { id, title, description, price, rating, images } = product
+  const cart = useGlobalStore(s => s.cart)
+  const addToCart = useGlobalStore(s => s.addToCart)
+
+  const isAdded = useMemo(() => cart.some(cartProduct => cartProduct.id === id), [cart, id])
+
   const imgSize = 500
 
   return (
@@ -31,8 +42,17 @@ export const ProductTile = ({ title, description, price, rating, images }: Produ
             </small>
           </div>
 
-          <button className='bg-mauve-200 p-2 rounded-lg button'>
-            <CartAddIcon className='text-black size-8' />
+          <button
+            type='button'
+            className={twMerge(
+              'p-2 rounded-lg button disabled:scale-100 disabled:brightness-100 [&>svg]:size-8 text-black',
+              !isAdded ? 'bg-mauve-200' : 'bg-purple-700'
+            )}
+            onClick={() => addToCart(product)}
+            aria-label={isAdded ? `Remove ${title} from cart` : `Add ${title} to cart`}
+            title={isAdded ? `Remove ${title} from cart` : `Add ${title} to cart`}
+          >
+            {isAdded ? <CartCheckedIcon /> : <CartAddIcon />}
           </button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import { useGlobalStore } from '@store'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import { SearchBar } from './search-bar'
 
 export const AppHeader = () => {
   const [isOnTop, setIsOnTop] = useState(true)
+  const cartItems = useGlobalStore(s => s.cart)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +43,14 @@ export const AppHeader = () => {
 
       <SearchBar />
 
-      <button className='button p-1'>
+      <Link href='/cart' className='button p-1 relative'>
         <CartIcon className='size-8' />
-      </button>
+        {cartItems.length > 0 && (
+          <span className='absolute bg-purple-800 text-white font-poppins size-5 text-sm font-semibold flex items-center justify-center rounded-full -top-1 -right-1'>
+            {cartItems.length}
+          </span>
+        )}
+      </Link>
     </header>
   )
 }
