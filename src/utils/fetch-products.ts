@@ -1,7 +1,7 @@
 import type { CATEGORIES } from '@consts'
 import type { Product, ProductFilters } from '@types'
 
-interface Params {
+type Params = {
   filters?: ProductFilters
   category?: (typeof CATEGORIES)[number]
   searchBar?: string
@@ -9,6 +9,10 @@ interface Params {
 
 export const fetchProducts = async ({ filters, category, searchBar }: Params) => {
   try {
+    if (searchBar && category) {
+      throw new Error('Search and category filters cannot be used together.')
+    }
+
     const url = new URL('https://dummyjson.com/products')
     const normalizedSearchBar = searchBar?.trim()
 

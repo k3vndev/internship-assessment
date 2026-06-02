@@ -1,15 +1,13 @@
 'use client'
 
-import { useGlobalStore } from '@store'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { CartIcon, SearchIcon } from './icons'
+import { CartIcon } from '../icons'
+import { SearchBar } from './search-bar'
 
 export const AppHeader = () => {
   const [isOnTop, setIsOnTop] = useState(true)
-  const searchBar = useGlobalStore(s => s.searchBar)
-  const setSearchBar = useGlobalStore(s => s.setSearchBar)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,16 +39,7 @@ export const AppHeader = () => {
         </div>
       </Link>
 
-      <label className='flex items-center gap-2 border border-gray-500 focus-within:border-gray-200 transition rounded-full px-4 h-12 w-full max-w-md absolute top-1/2 left-1/2 -translate-1/2 group'>
-        <SearchIcon className='size-5 text-gray-400 group-focus-within:text-gray-200 transition' />
-        <input
-          type='text'
-          placeholder='Search products...'
-          value={searchBar}
-          onChange={event => setSearchBar(event.target.value)}
-          className='outline-none placeholder:text-gray-400'
-        />
-      </label>
+      <SearchBar />
 
       <button className='button p-1'>
         <CartIcon className='size-8' />

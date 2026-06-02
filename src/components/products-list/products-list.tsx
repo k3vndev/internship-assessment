@@ -1,5 +1,5 @@
 import type { Product } from '@types'
-import { CrossIcon, LoadingIcon } from '../icons'
+import { CartOffIcon, CrossIcon, LoadingIcon } from '../icons'
 import { ProductTile } from './product.tile'
 
 interface Props {
@@ -19,7 +19,7 @@ export const ProductsList = ({ products, isLoading }: Props) => {
   }
 
   return (
-    <ul className='min-h-full flex items-center justify-center text-black text-sm [&>svg]:size-16'>
+    <ul className='min-h-full flex flex-col items-center justify-center text-black text-xl gap-2 font-semibold [&>svg]:size-16'>
       {isLoading ? (
         <LoadingIcon className='animate-spin' />
       ) : products === null ? (
@@ -28,7 +28,10 @@ export const ProductsList = ({ products, isLoading }: Props) => {
           Failed to load products.
         </>
       ) : (
-        'No products found.'
+        <>
+          <CartOffIcon />
+          No products found.
+        </>
       )}
     </ul>
   )

@@ -14,7 +14,11 @@ export const useGlobalStore = create<GlobalStore>(set => ({
   searchBar: '',
   filters: {},
   cart: [],
-  setSearchBar: searchBar => set({ searchBar }),
+  setSearchBar: searchBar =>
+    set(() => {
+      console.log({ searchBar })
+      return { searchBar }
+    }),
   setFilters: filters => set({ filters }),
   setCart: cart => set({ cart })
 }))
