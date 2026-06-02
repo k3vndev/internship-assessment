@@ -5,7 +5,7 @@ import { useFetchProducts } from '@hooks'
 import { useGlobalStore } from '@store'
 import type { ProductFilters } from '@types'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 
 const initialFilters: ProductFilters = {
   limit: 20,
@@ -13,7 +13,7 @@ const initialFilters: ProductFilters = {
   order: 'desc'
 }
 
-export default function SearchPage() {
+const SearchPageContent = () => {
   const searchParams = useSearchParams()
   const storeFilters = useGlobalStore(s => s.filters)
   const searchBar = useGlobalStore(s => s.searchBar)
@@ -60,5 +60,13 @@ export default function SearchPage() {
     <main className='px-(--app-px) mt-48 mb-16'>
       <ProductsList products={products} isLoading={isLoading} />
     </main>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<main className='px-(--app-px) mt-48 mb-16'>Loading search...</main>}>
+      <SearchPageContent />
+    </Suspense>
   )
 }
