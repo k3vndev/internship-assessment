@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { AppHeader } from '@components'
+import { AppFooter, AppHeader } from '@components'
 import { APP_FONTS_VARIABLES } from '@consts'
 
 export const metadata: Metadata = {
@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className='min-h-full flex flex-col font-plus'>
         <AppHeader />
         {children}
+        <AppFooter />
       </body>
     </html>
   )

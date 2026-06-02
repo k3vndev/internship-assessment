@@ -15,11 +15,11 @@ export const AppHeader = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const bgColor = isOnTop ? 'bg-black' : 'bg-black/90'
+  const bgColor = isOnTop ? 'bg-black' : 'bg-black/85'
 
   return (
     <header
-      className={`flex justify-between items-center px-(--app-px) fixed w-screen z-50 top-0 left-0 py-4 ${bgColor} backdrop-blur-sm transition duration-500 border-b border-gray-700`}
+      className={`flex justify-between items-center px-(--app-px) fixed w-screen z-50 top-0 left-0 py-4 ${bgColor} backdrop-blur-md transition duration-500 border-b border-gray-800`}
     >
       <div className='flex flex-col gap-0 items-start'>
         <h1 className='text-2xl font-semibold text-center font-poppins'>Kevin's Store</h1>

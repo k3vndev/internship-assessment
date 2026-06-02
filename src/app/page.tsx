@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <section className='px-(--app-px) flex flex-col gap-8 py-12 bg-mauve-300'>
+      <section className='px-(--app-px) flex flex-col gap-8 pt-16 pb-28 bg-linear-to-b from-mauve-400 to-mauve-200'>
         <h3 className='text-8xl font-bold -tracking-widest'>PRODUCTS</h3>
         <ul className='grid grid-cols-5 gap-4'>
           {products?.map(product => (
